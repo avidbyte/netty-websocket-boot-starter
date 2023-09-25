@@ -1,7 +1,7 @@
 netty-websocket-boot-starter [![License](http://img.shields.io/:license-apache-brightgreen.svg)](http://www.apache.org/licenses/LICENSE-2.0.html)
 ===================================
 
-README: [English](https://github.com/tianzunh/netty-websocket-boot-starter/main/README.md) | [中文](https://github.com/tianzunh/netty-websocket-boot-starter/blob/main/README_zh.md)
+README: [English](https://github.com/avidbyte/netty-websocket-boot-starter/blob/main/README.md) | [中文](https://github.com/avidbyte/netty-websocket-boot-starter/blob/main/README_zh.md)
 
 
 ### Overview
@@ -22,11 +22,12 @@ main feature:
 - add Dependencies:
 
 ```xml
-	<dependency>
-		<groupId>org.tianzunh</groupId>
-		<artifactId>netty-websocket-boot-starter</artifactId>
-		<version>1.0.0</version>
-	</dependency>
+
+<dependency>
+    <groupId>org.avidbyte</groupId>
+    <artifactId>netty-websocket-boot-starter</artifactId>
+    <version>1.0.0</version>
+</dependency>
 ```
 
 - annotate `@ServerEndpoint` on endpoint class，and annotate `@BeforeHandshake`,`@OnOpen`,`@OnClose`,`@OnError`,`@OnMessage`,`@OnBinary`,`@OnEvent` on the method.

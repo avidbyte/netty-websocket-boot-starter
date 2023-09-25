@@ -2,15 +2,15 @@
   "groups": [
     {
       "name": "netty.websocket",
-      "type": "org.tianzunh.autoconfigure.WebSocketProperties",
-      "sourceType": "org.tianzunh.autoconfigure.WebSocketProperties"
+      "type": "org.avidbyte.autoconfigure.WebSocketProperties",
+      "sourceType": "org.avidbyte.autoconfigure.WebSocketProperties"
     }
   ],
   "properties": [
     {
       "name": "netty.websocket.endpoint",
-      "type": "java.util.Map<java.lang.String,org.tianzunh.autoconfigure.NettyProperties>",
-      "sourceType": "org.tianzunh.autoconfigure.WebSocketProperties"
+      "type": "java.util.Map<java.lang.String,org.avidbyte.autoconfigure.NettyProperties>",
+      "sourceType": "org.avidbyte.autoconfigure.WebSocketProperties"
     }
   ],
   "hints": []

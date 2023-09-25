@@ -1,2 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-org.tianzunh.autoconfigure.NettyWebsocketAutoConfiguration
+org.avidbyte.autoconfigure.NettyWebsocketAutoConfiguration
