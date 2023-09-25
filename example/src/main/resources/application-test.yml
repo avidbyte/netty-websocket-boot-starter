@@ -1,0 +1,18 @@
+netty:
+  websocket:
+    endpoint:
+      im:
+        port: 8081
+        reader-idle-time-seconds: 10
+        writer-idle-time-seconds: 20
+        all-idle-time-seconds: 30
+
+
+
+
+
+
+
+
+
+

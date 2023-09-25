@@ -1,0 +1,17 @@
+{
+  "groups": [
+    {
+      "name": "netty.websocket",
+      "type": "com.tianzunh.autoconfigure.WebSocketProperties",
+      "sourceType": "com.tianzunh.autoconfigure.WebSocketProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "netty.websocket.endpoint",
+      "type": "java.util.Map<java.lang.String,com.tianzunh.autoconfigure.NettyProperties>",
+      "sourceType": "com.tianzunh.autoconfigure.WebSocketProperties"
+    }
+  ],
+  "hints": []
+}

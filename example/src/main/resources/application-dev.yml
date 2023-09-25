@@ -1,0 +1,19 @@
+netty:
+  websocket:
+    endpoint:
+      im:
+        reader-idle-time-seconds: 10
+        writer-idle-time-seconds: 20
+        all-idle-time-seconds: 30
+        boss-loop-group-threads: 1
+
+
+
+
+
+
+
+
+
+
+
