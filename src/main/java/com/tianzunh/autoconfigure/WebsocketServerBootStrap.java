@@ -80,7 +80,8 @@ public class WebsocketServerBootStrap extends ApplicationObjectSupport implement
         }
         String path = annotation.value();
         checkPath(path);
-        NettyProperties nettyProperties = webSocketProperties.getEndpoint().getOrDefault(path.substring(1), new NettyProperties());
+        String processedPath = removeSlash(path);
+        NettyProperties nettyProperties = webSocketProperties.getEndpoint().getOrDefault(processedPath, new NettyProperties());
 
         ServerEndpointConfig serverEndpointConfig = new ServerEndpointConfig(nettyProperties);
 
@@ -139,4 +140,9 @@ public class WebsocketServerBootStrap extends ApplicationObjectSupport implement
             throw new IllegalArgumentException("Path must start with '/'");
         }
     }
+
+    private String removeSlash(String path) {
+        return path.replaceAll("/", "");
+    }
+
 }
