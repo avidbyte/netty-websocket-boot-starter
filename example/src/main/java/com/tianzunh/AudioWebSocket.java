@@ -8,7 +8,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
-import java.io.IOException;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -18,8 +17,8 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 @Slf4j
 @Component
-@ServerEndpoint("/im2")
-public class WebSocket2 {
+@ServerEndpoint("/chat/audio")
+public class AudioWebSocket {
 
     private static int onlineCount = 0;
     private static final Map<String, Session> CLIENTS = new ConcurrentHashMap<>();
@@ -45,7 +44,7 @@ public class WebSocket2 {
     }
 
     @OnClose
-    public void onClose(Session session) throws IOException {
+    public void onClose(Session session){
         String name = session.getAttribute("name");
         log.info("{}disconnected, current number of connections = {}", name, onlineCount);
         CLIENTS.remove(name);
@@ -53,13 +52,9 @@ public class WebSocket2 {
         subOnlineCount();
     }
 
-    @OnMessage
-    public void onMessage(Session session, String message) throws IOException {
-        log.info("message={}", message);
-        String ping = "ping";
-        if (ping.equals(message)) {
-            session.sendText("pong");
-        }
+    @OnBinary
+    public void onBinary(Session session, byte[] bytes) {
+
     }
 
     @OnEvent
@@ -83,7 +78,7 @@ public class WebSocket2 {
     }
 
     @OnError
-    public void onError(Session session, Throwable error) throws IOException {
+    public void onError(Session session, Throwable error)  {
         String name = session.getAttribute("name");
         log.error("A communication error occurred and the connection was closed = {}", name);
         CLIENTS.remove(name);
@@ -91,27 +86,16 @@ public class WebSocket2 {
         subOnlineCount();
     }
 
-    public void sendMessageTo(String message, Session session) {
-        session.sendText(message);
-    }
-
-    public void sendMessageAll(String message) {
-        log.info("Message sent by server: {}, number of clients: {}", message, onlineCount);
-        for (Session session : CLIENTS.values()) {
-            session.sendText(message);
-        }
-    }
-
     public static synchronized int getOnlineCount() {
         return onlineCount;
     }
 
     public static synchronized void addOnlineCount() {
-        WebSocket2.onlineCount++;
+        AudioWebSocket.onlineCount++;
     }
 
     public static synchronized void subOnlineCount() {
-        WebSocket2.onlineCount--;
+        AudioWebSocket.onlineCount--;
     }
 
 }

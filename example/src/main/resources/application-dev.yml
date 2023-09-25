@@ -1,19 +1,13 @@
 netty:
   websocket:
     endpoint:
-      im:
+      chat/text:
+        port: 80
         reader-idle-time-seconds: 10
         writer-idle-time-seconds: 20
         all-idle-time-seconds: 30
-        boss-loop-group-threads: 1
-
-
-
-
-
-
-
-
-
-
-
+      chat/audio:
+        port: 81
+        reader-idle-time-seconds: 10
+        writer-idle-time-seconds: 20
+        all-idle-time-seconds: 30

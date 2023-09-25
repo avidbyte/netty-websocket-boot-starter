@@ -5,12 +5,9 @@ import com.tianzunh.standard.Session;
 import io.netty.handler.codec.http.HttpHeaders;
 import io.netty.handler.timeout.IdleStateEvent;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
-import org.springframework.util.MultiValueMap;
 import org.springframework.util.StringUtils;
 
-import java.io.IOException;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -20,10 +17,8 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 @Slf4j
 @Service
-@ServerEndpoint("/im")
-public class WebSocket {
-
-    private static int onlineCount = 0;
+@ServerEndpoint("/chat/text")
+public class TextWebSocket {
     private static final Map<String, Session> CLIENTS = new ConcurrentHashMap<>();
 
 
@@ -34,29 +29,25 @@ public class WebSocket {
     }
 
     @OnOpen
-    public void onOpen(@PathParam("connectName") String connectName, Session session) {
-        if (!StringUtils.hasLength(connectName)) {
-            log.error("connectName is empty");
+    public void onOpen(@PathParam("username") String username, Session session) {
+        if (!StringUtils.hasLength(username)) {
+            log.error("username is empty");
             return;
         }
-        log.info("connectName={}", connectName);
-        addOnlineCount();
-        session.setAttribute("name", connectName);
-        CLIENTS.put(connectName, session);
-        log.info("New connection, current number of connections = {}", onlineCount);
+        log.info("username={}", username);
+        session.setAttribute("name", username);
+        CLIENTS.put(username, session);
     }
 
     @OnClose
-    public void onClose(Session session) throws IOException {
+    public void onClose(Session session){
         String name = session.getAttribute("name");
-        log.info("{}disconnected, current number of connections = {}", name, onlineCount);
         CLIENTS.remove(name);
         session.close();
-        subOnlineCount();
     }
 
     @OnMessage
-    public void onMessage(Session session, String message) throws IOException {
+    public void onMessage(Session session, String message){
         log.info("message={}", message);
         String ping = "ping";
         if (ping.equals(message)) {
@@ -85,12 +76,11 @@ public class WebSocket {
     }
 
     @OnError
-    public void onError(Session session, Throwable error) throws IOException {
+    public void onError(Session session, Throwable error){
         String name = session.getAttribute("name");
         log.error("A communication error occurred and the connection was closed = {}", name);
         CLIENTS.remove(name);
         session.close();
-        subOnlineCount();
     }
 
     public void sendMessageTo(String message, Session session) {
@@ -98,22 +88,9 @@ public class WebSocket {
     }
 
     public void sendMessageAll(String message) {
-        log.info("Message sent by server: {}, number of clients: {}", message, onlineCount);
         for (Session session : CLIENTS.values()) {
             session.sendText(message);
         }
-    }
-
-    public static synchronized int getOnlineCount() {
-        return onlineCount;
-    }
-
-    public static synchronized void addOnlineCount() {
-        WebSocket.onlineCount++;
-    }
-
-    public static synchronized void subOnlineCount() {
-        WebSocket.onlineCount--;
     }
 
 }

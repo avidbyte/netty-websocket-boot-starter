@@ -15,7 +15,7 @@ import javax.annotation.Resource;
 public class ScheduleTask {
 
     @Resource
-    WebSocket webSocket;
+    TextWebSocket webSocket;
 
     /**
      * 开始job
