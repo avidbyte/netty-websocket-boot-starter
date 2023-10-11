@@ -3,79 +3,41 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.avidbyte</groupId>
-    <artifactId>netty-websocket</artifactId>
-    <version>1.0.0</version>
-    <name>netty-websocket</name>
-    <description>netty-websocket</description>
-    <packaging>pom</packaging>
+    <parent>
+        <groupId>org.avidbyte</groupId>
+        <artifactId>netty-websocket</artifactId>
+        <version>1.0.0</version>
+    </parent>
 
-    <licenses>
-        <license>
-            <name>The Apache Software License, Version 2.0</name>
-            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-            <distribution>repo</distribution>
-        </license>
-    </licenses>
-
-    <scm>
-        <url>https://github.com/avidbyte/netty-websocket-boot-starter</url>
-        <connection>https://github.com/avidbyte/netty-websocket-boot-starter.git</connection>
-        <developerConnection>https://github.com/avidbyte</developerConnection>
-    </scm>
-
-    <developers>
-        <developer>
-            <name>Aaron</name>
-            <email>wudi102411@gmail.com</email>
-            <url>https://github.com/avidbyte</url>
-        </developer>
-    </developers>
-
+    <artifactId>netty-websocket-boot-starter</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <name>netty-websocket-boot-starter</name>
+    <description>netty-websocket-boot-starter</description>
 
     <properties>
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <netty.version>4.1.94.Final</netty.version>
-        <spring-boot.version>2.0.0.RELEASE</spring-boot.version>
     </properties>
 
-    <modules>
-        <module>netty-websocket-boot-starter</module>
-    </modules>
+    <dependencies>
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-codec-http</artifactId>
+        </dependency>
 
-    <dependencyManagement>
-        <dependencies>
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-handler</artifactId>
+        </dependency>
 
-            <dependency>
-                <groupId>io.netty</groupId>
-                <artifactId>netty-codec-http</artifactId>
-                <version>${netty.version}</version>
-            </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-autoconfigure</artifactId>
+            <optional>true</optional>
+        </dependency>
+    </dependencies>
 
-            <dependency>
-                <groupId>io.netty</groupId>
-                <artifactId>netty-handler</artifactId>
-                <version>${netty.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-autoconfigure</artifactId>
-                <version>${spring-boot.version}</version>
-                <optional>true</optional>
-            </dependency>
-
-            <dependency>
-                <groupId>javax.annotation</groupId>
-                <artifactId>javax.annotation-api</artifactId>
-                <version>1.3.2</version>
-                <scope>provided</scope>
-            </dependency>
-
-        </dependencies>
-    </dependencyManagement>
 
     <distributionManagement>
         <snapshotRepository>
@@ -172,8 +134,4 @@
         </plugins>
     </build>
 
-
 </project>
-
-
-
