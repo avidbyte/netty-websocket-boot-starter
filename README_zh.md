@@ -3,7 +3,7 @@ netty-websocket
 [![License](http://img.shields.io/:license-apache-brightgreen.svg)](http://www.apache.org/licenses/LICENSE-2.0.html)
 
 
-README: [English](https://github.com/avidbyte/netty-websocket/blob/main/README.md) | [中文](https://github.com/avidbyte/netty-websocket/blob/main/README_zh.md)
+README: [English](https://github.com/avidbyte/netty-websocket-boot-starter/blob/main/README.md) | [中文](https://github.com/avidbyte/netty-websocket-boot-starter/blob/main/README_zh.md)
 
 
 ### 概述
