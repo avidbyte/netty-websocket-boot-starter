@@ -1,4 +1,4 @@
-netty-websocket
+netty-websocket-boot-starter
 ===================================
 [![License](http://img.shields.io/:license-apache-brightgreen.svg)](http://www.apache.org/licenses/LICENSE-2.0.html)
 
@@ -26,7 +26,7 @@ main feature:
 ```xml
 
 <dependency>
-    <groupId>org.avidbyte</groupId>
+    <groupId>io.github.avidbyte</groupId>
     <artifactId>netty-websocket-boot-starter</artifactId>
     <version>1.0.0</version>
 </dependency>
