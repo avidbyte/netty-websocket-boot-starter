@@ -9,6 +9,8 @@
     <name>netty-websocket-boot-starter</name>
     <description>netty-websocket-boot-starter</description>
 
+    <url>https://github.com/avidbyte/netty-websocket-boot-starter</url>
+
     <properties>
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
