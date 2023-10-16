@@ -32,6 +32,7 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
         </dependency>
+
         <dependency>
             <groupId>io.github.avidbyte</groupId>
             <artifactId>netty-websocket-boot-starter</artifactId>
@@ -51,6 +52,20 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+
+    <repositories>
+        <repository>
+            <!-- ID必填 -->
+            <id>snapshots</id>
+            <!-- Maven私服SNAPSHAT仓库URL，这里需要替换为实际公司的私服地址 -->
+            <url>https://s01.oss.sonatype.org/content/repositories/snapshots/</url>
+            <!-- 设置启用SNAPSHOT -->
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
 
     <build>
         <plugins>
