@@ -28,7 +28,7 @@ README: [English](https://github.com/avidbyte/netty-websocket-boot-starter/blob/
 <dependency>
     <groupId>io.github.avidbyte</groupId>
     <artifactId>netty-websocket-boot-starter</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
 </dependency>
 ```
 
@@ -237,3 +237,8 @@ WebSocketServerCompressionHandler 是 Netty 中用于 WebSocket 消息压缩的�
 #### 1.0.0
 
 - 实现 websocket 服务的基本功能
+- 
+#### 1.0.1
+
+- fix:调整项目结构，解决jar依赖找不到的问题
+

@@ -28,7 +28,7 @@ main feature:
 <dependency>
     <groupId>io.github.avidbyte</groupId>
     <artifactId>netty-websocket-boot-starter</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
 </dependency>
 ```
 
@@ -232,3 +232,7 @@ netty.websocket.endpoint.chat/audio.all-idle-time-seconds=30
 #### 1.0.0
 
 - Implement basic functions of websocket service
+
+#### 1.0.1
+
+- fix: adjust the project structure to solve the problem of jar dependencies not being found
