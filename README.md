@@ -16,6 +16,7 @@ main feature:
 - Simplify real-time application development
 - Built on the powerful Netty framework
 
+If you think this project is good, please click a Star
 ### Requirement
 - jdk version 1.8 or 1.8+
 

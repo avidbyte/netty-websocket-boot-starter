@@ -16,6 +16,7 @@ README: [English](https://github.com/avidbyte/netty-websocket-boot-starter/blob/
 - 简化实时应用程序开发
 - 基于强大的Netty框架构建
 
+如果您觉得这个项目不错，请点一个Star吧
 ### 要求
 - jdk version 1.8 or 1.8+
 
