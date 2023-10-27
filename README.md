@@ -3,26 +3,26 @@ netty-websocket-boot-starter
 [![License](http://img.shields.io/:license-apache-brightgreen.svg)](http://www.apache.org/licenses/LICENSE-2.0.html)
 
 
-README: [English](https://github.com/avidbyte/netty-websocket-boot-starter/blob/main/README.md) | [中文](https://github.com/avidbyte/netty-websocket-boot-starter/blob/main/README_zh.md)
+README: [简体中文](https://github.com/avidbyte/netty-websocket-boot-starter/blob/main/README.md) ｜ [English](https://github.com/avidbyte/netty-websocket-boot-starter/blob/main/README_en.md) 
 
 
-### Overview
-This is a lightweight, high-performance WebSocket framework based on Netty, which improves your WebSocket development experience and brings new WebSocket features to Spring Boot.
-This project allows you to easily integrate WebSocket functionality into your Spring Boot project, providing the simplicity of Tomcat WebSocket while enjoying the performance and scalability advantages of Netty.
+### 概述
+这是一个轻量级、高性能的基于Netty的WebSocket框架，提升你的WebSocket开发体验，为Spring Boot带来全新的WebSocket功能。
+该项目使你可以轻松集成WebSocket功能到你的Spring Boot项目中，提供了Tomcat WebSocket的简单性，同时享受Netty性能和可扩展性的优势。
 
-main feature:
-- Seamless integration with Spring Boot
-- Lightweight and high performance
-- Simplify real-time application development
-- Built on the powerful Netty framework
+主要特点：
+- 无缝集成Spring Boot
+- 轻量级和高性能
+- 简化实时应用程序开发
+- 基于强大的Netty框架构建
 
-If you think this project is good, please click a Star
-### Requirement
+如果您觉得这个项目不错，请点一个Star吧
+### 要求
 - jdk version 1.8 or 1.8+
 
-### Quick Start
+### 快速开始
 
-- add Dependencies:
+- 添加依赖:
 
 ```xml
 
@@ -33,7 +33,7 @@ If you think this project is good, please click a Star
 </dependency>
 ```
 
-- annotate `@ServerEndpoint` on endpoint class，and annotate `@BeforeHandshake`,`@OnOpen`,`@OnClose`,`@OnError`,`@OnMessage`,`@OnBinary`,`@OnEvent` on the method.
+- 在端点类上注释`@ServerEndpoint`，并在方法上注释`@BeforeHandshake`,`@OnOpen`,`@OnClose`,`@OnError`,`@OnMessage`,`@OnBinary`,`@OnEvent`。
 
 ```java
 @Slf4j
@@ -117,46 +117,45 @@ public class TextWebSocket {
 }
 ```
 
-- use Websocket client to connect `ws://127.0.0.1:80/chat/text?username=Aaron` 
+- 使用Websocket客户端连接 `ws://127.0.0.1:80/chat/text?username=Aaron`
 
 
 ### Annotation
-###### @ServerEndpoint 
-> Each class marked with @ServerEndpoint will start a websocket service for it. Each service can specify its port in the path of the configuration file.
+###### @ServerEndpoint
+> 每个标有@ServerEndpoint的类都会为其启动一个websocket服务。 每个服务都可以在配置文件的路径中指定其端口。
 
-###### @BeforeHandshake 
-> when there is a connection accepted,the method annotated with `@BeforeHandshake` will be called  
-> classes which be injected to the method are: Session,HttpHeaders
+###### @BeforeHandshake
+> 当有新的连接进入时，将调用`@BeforeHandshake`注释的方法
+> 注入到方法中的类有：Session、HttpHeaders
 
-###### @OnOpen 
-> when there is a WebSocket connection completed,the method annotated with `@OnOpen` will be called  
-> classes which be injected to the method are:Session,HttpHeaders...
+###### @OnOpen
+> 当WebSocket连接完成时，会调用`@OnOpen`注解的方法
+> 注入到方法中的类有：Session、HttpHeaders
 
 ###### @OnClose
-> when a WebSocket connection closed,the method annotated with `@OnClose` will be called
-> classes which be injected to the method are:Session
+> 当WebSocket连接关闭时，将调用`@OnClose`注释的方法
+> 注入到方法中的类有：Session
 
 ###### @OnError
-> when a WebSocket connection throw Throwable, the method annotated with `@OnError` will be called
-> classes which be injected to the method are:Session,Throwable
+> 当WebSocket连接抛出Throwable时，将调用带有`@OnError`注释的方法
+> 注入到方法中的类有：Session、Throwable
 
 ###### @OnMessage
-> when a WebSocket connection received a message,the method annotated with `@OnMessage` will be called
-> classes which be injected to the method are:Session,String
+> 当WebSocket连接收到消息时，将调用带有`@OnMessage`注释的方法
+> 注入到方法中的类有：Session、String
 
 ###### @OnBinary
-> when a WebSocket connection received the binary,the method annotated with `@OnBinary` will be called
-> classes which be injected to the method are:Session,byte[]
+> 当WebSocket连接收到二进制文件时，将调用带有`@OnBinary`注释的方法
+> 注入到方法中的类有：Session、byte[]
 
 ###### @OnEvent
-> when a WebSocket connection received the event of Netty,the method annotated with `@OnEvent` will be called
-> classes which be injected to the method are:Session,Object
+> 当WebSocket连接收到Netty的事件时，会调用`@OnEvent`注解的方法
+> 注入到方法中的类有：Session、Object
 
 ### Configuration
 
-> @ServerEndpoint only needs to configure the path, and the configuration corresponding to this path is all in application.yml
-> The default configuration is host: 0.0.0.0, port: 80
-
+> @ServerEndpoint只需要配置路径，该路径对应的配置全部在application.yml 中
+> 默认配置为host: 0.0.0.0, 端口: 80
 
 #### Configuration by application.yml
 ```yaml
@@ -174,7 +173,6 @@ netty:
         writer-idle-time-seconds: 20
         all-idle-time-seconds: 30
 ```
-
 #### Configuration by application.properties
 ```properties
 netty.websocket.endpoint.chat/text.port=80
@@ -187,53 +185,61 @@ netty.websocket.endpoint.chat/audio.writer-idle-time-seconds=20
 netty.websocket.endpoint.chat/audio.all-idle-time-seconds=30
 ```
 
-#### All configuration parameters
 
 
-| property                                  | default          | description                                                                                                                |
-|-------------------------------------------|------------------|----------------------------------------------------------------------------------------------------------------------------|
-| host                                      | "0.0.0.0"        | host of WebSocket.`"0.0.0.0"` means all of local addresses                                                                 |
-| port                                      | 80               | websocket service port                                                                                                     |
-| boss-loop-group-threads                   | 1                | The number of threads of bossEventLoopGroup                                                                                |
-| worker-loop-group-threads                 | 0                | The number of threads of workerEventLoopGroup                                                                              |
-| use-compression-handler                   | false            | whether add WebSocketServerCompressionHandler to pipeline                                                                  |
-| option-connect-timeout-millis             | 30000            | the same as `ChannelOption.CONNECT_TIMEOUT_MILLIS` in Netty                                                                |
-| option-so-backlog                         | 128              | the same as `ChannelOption.SO_BACKLOG` in Netty                                                                            |
-| child-option-write-spin-count             | 16               | the same as `ChannelOption.WRITE_SPIN_COUNT` in Netty                                                                      |
-| child-option-write-buffer-high-water-mark | 64*1024          | the same as `ChannelOption.WRITE_BUFFER_HIGH_WATER_MARK` in Netty,but use `ChannelOption.WRITE_BUFFER_WATER_MARK` in fact. |
-| child-option-write-buffer-low-water-mark  | 32*1024          | the same as `ChannelOption.WRITE_BUFFER_LOW_WATER_MARK` in Netty,but use `ChannelOption.WRITE_BUFFER_WATER_MARK` in fact.  |
-| child-option-so-rcv-buf                   | -1(mean not set) | the same as `ChannelOption.SO_RCVBUF` in Netty                                                                             |
-| child-option-so-snd-buf                   | -1(mean not set) | the same as `ChannelOption.SO_SNDBUF` in Netty                                                                             |
-| child-option-tcp-nodelay                  | true             | the same as `ChannelOption.TCP_NODELAY` in Netty                                                                           |
-| child-option-so-keepalive                 | false            | the same as `ChannelOption.SO_KEEPALIVE` in Netty                                                                          |
-| child-option-so-linger                    | -1               | the same as `ChannelOption.SO_LINGER` in Netty                                                                             |
-| child-option-allow-half-closure           | false            | the same as `ChannelOption.ALLOW_HALF_CLOSURE` in Netty                                                                    |
-| reader-idle-time-seconds                  | 0                | the same as `readerIdleTimeSeconds` in `IdleStateHandler` and add `IdleStateHandler` to `pipeline` when it is not 0        |
-| writer-idle-time-seconds                  | 0                | the same as `writerIdleTimeSeconds` in `IdleStateHandler` and add `IdleStateHandler` to `pipeline` when it is not 0        |
-| all-idle-time-seconds                     | 0                | the same as `allIdleTimeSeconds` in `IdleStateHandler` and add `IdleStateHandler` to `pipeline` when it is not 0           |
-| max-frame-payload-length                  | 65536            | Maximum allowable frame payload length.                                                                                    |
-| use-event-executor-group                  | true             | Whether to use another thread pool to perform time-consuming synchronous business logic                                    |
-| event-executor-group-threads              | 16               | The number of threads of bossEventLoopGroup                                                                                |
-| ssl-key-password                          | ""(mean not set) | the same as `server.ssl.key-password` in spring-boot                                                                       |
-| ssl-key-store                             | ""(mean not set) | the same as `server.ssl.key-store` in spring-boot                                                                          |
-| ssl-key-password                          | ""(mean not set) | the same as `server.ssl.key-store-password` in spring-boot                                                                 |
-| ssl-key-store-type                        | ""(mean not set) | the same as `server.ssl.key-store-type` in spring-boot                                                                     |
-| ssl-trust-store                           | ""(mean not set) | the same as `server.ssl.trust-store` in spring-boot                                                                        |
-| ssl-trust-store-password                  | ""(mean not set) | the same as `server.ssl.trust-store-password` in spring-boot                                                               |
-| ssl-trust-store-type                      | ""(mean not set) | the same as `server.ssl.trust-store-type` in spring-boot                                                                   |
-| cors-origins                              | {}(mean not set) | the same as `@CrossOrigin#origins` in spring-boot                                                                          |
-| cors-allow-credentials                    | ""(mean not set) | the same as `@CrossOrigin#allowCredentials` in spring-boot                                                                 |
+#### 所有配置参数
+
+
+| property                                  | default          | description                                                                                             |
+|-------------------------------------------|------------------|---------------------------------------------------------------------------------------------------------|
+| host                                      | "0.0.0.0"        | WebSocket 的主机。`"0.0.0.0"` 表示所有本地地址                                                                      |
+| port                                      | 80               | websocket 服务端口                                                                                          |
+| boss-loop-group-threads                   | 1                | bossEventLoopGroup 的线程数                                                                                 |
+| worker-loop-group-threads                 | 0                | workerEventLoopGroup 的线程数                                                                               |
+| use-compression-handler                   | false            | 是否将WebSocketServerCompressionHandler添加到管道                                                               |
+| option-connect-timeout-millis             | 30000            | 与 Netty 中的 `ChannelOption.CONNECT_TIMEOUT_MILLIS` 相同                                                    |
+| option-so-backlog                         | 128              | 与 Netty 中的 `ChannelOption.SO_BACKLOG` 相同                                                                |
+| child-option-write-spin-count             | 16               | 与 Netty 中的 `ChannelOption.WRITE_SPIN_COUNT` 相同                                                          |
+| child-option-write-buffer-high-water-mark | 64*1024          | 与 Netty 中的`ChannelOption.WRITE_BUFFER_HIGH_WATER_MARK`相同，但实际上使用`ChannelOption.WRITE_BUFFER_WATER_MARK`。 |
+| child-option-write-buffer-low-water-mark  | 32*1024          | 与 Netty 中的`ChannelOption.WRITE_BUFFER_LOW_WATER_MARK`相同，但实际上使用`ChannelOption.WRITE_BUFFER_WATER_MARK`。  |
+| child-option-so-rcv-buf                   | -1(mean not set) | 与 Netty 中的`ChannelOption.SO_RCVBUF`相同                                                                   |
+| child-option-so-snd-buf                   | -1(mean not set) | 与 Netty 中的`ChannelOption.SO_SNDBUF`相同                                                                   |
+| child-option-tcp-nodelay                  | true             | 与 Netty 中的 `ChannelOption.TCP_NODELAY` 相同                                                               |
+| child-option-so-keepalive                 | false            | 与 Netty 中的`ChannelOption.SO_KEEPALIVE`相同                                                                |
+| child-option-so-linger                    | -1               | 与 Netty 中的 `ChannelOption.SO_LINGER` 相同                                                                 |
+| child-option-allow-half-closure           | false            | 与 Netty 中的 `ChannelOption.ALLOW_HALF_CLOSURE` 相同                                                        |
+| reader-idle-time-seconds                  | 0                | 与`IdleStateHandler`中的`readerIdleTimeSeconds`相同，当不为0时将`IdleStateHandler`添加到`pipeline`中                   |
+| writer-idle-time-seconds                  | 0                | 与`IdleStateHandler`中的`writerIdleTimeSeconds`相同，当不为0时将`IdleStateHandler`添加到`pipeline`中                   |
+| all-idle-time-seconds                     | 0                | 与`IdleStateHandler`中的`allIdleTimeSeconds`相同，当不为0时将`IdleStateHandler`添加到`pipeline`中                      |
+| max-frame-payload-length                  | 65536            | 最大允许帧有效负载长度。                                                                                            |
+| use-event-executor-group                  | true             | 是否使用另一个线程池来执行耗时的同步业务逻辑                                                                                  |
+| event-executor-group-threads              | 16               | bossEventLoopGroup 的线程数                                                                                 |
+| ssl-key-password                          | ""(mean not set) | 与 spring-boot 中的 `server.ssl.key-password` 相同                                                           |
+| ssl-key-store                             | ""(mean not set) | 与 spring-boot 中的 `server.ssl.key-store` 相同                                                              |
+| ssl-key-password                          | ""(mean not set) | 与 spring-boot 中的 `server.ssl.key-store-password` 相同                                                     |
+| ssl-key-store-type                        | ""(mean not set) | 与 spring-boot 中的 `server.ssl.key-store-type` 相同                                                         |
+| ssl-trust-store                           | ""(mean not set) | 与 spring-boot 中的 `server.ssl.trust-store` 相同                                                            |
+| ssl-trust-store-password                  | ""(mean not set) | 与 spring-boot 中的 `server.ssl.trust-store-password` 相同                                                   |
+| ssl-trust-store-type                      | ""(mean not set) | 与 spring-boot 中的 `server.ssl.trust-store-type` 相同                                                       |
+| cors-origins                              | {}(mean not set) | 与 spring-boot 中的“@CrossOrigin#origins”相同                                                                |
+| cors-allow-credentials                    | ""(mean not set) | 与 spring-boot 中的“@CrossOrigin#allowCredentials”相同                                                       |
 
 ---
 
 
+### Explanation
+#### WebSocketServerCompressionHandler
+WebSocketServerCompressionHandler 是 Netty 中用于 WebSocket 消息压缩的处理器。它的主要作用是启用 WebSocket 消息压缩以减少数据传输的大小，从而提高网络传输效率。
+#### ChannelOption.CONNECT_TIMEOUT_MILLIS
+用于设置连接超时的时间（以毫秒为单位）。它用于控制在尝试建立连接时，如果连接不能在指定的时间内建立，将会触发连接超时异常;实际的超时行为可能会受到操作系统和网络条件的影响，因此超时时间并不总是精确的。但它可以作为一种有效的手段来避免无限等待并处理连接失败的情况。
 
-### Change Log
+### 更新日志
 
 #### 1.0.0
 
-- Implement basic functions of websocket service
-
+- 实现 websocket 服务的基本功能
+-
 #### 1.0.1
 
-- fix: adjust the project structure to solve the problem of jar dependencies not being found
+- fix:调整项目结构，解决jar依赖找不到的问题
+
