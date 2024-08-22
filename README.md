@@ -1,9 +1,11 @@
 netty-websocket-boot-starter
 ===================================
-[![License](http://img.shields.io/:license-apache-brightgreen.svg)](http://www.apache.org/licenses/LICENSE-2.0.html)
 
+[![License](https://img.shields.io/badge/license-Apache--2.0-4D7A97)](https://github.com/avidbyte/netty-websocket-boot-starter/blob/main/LICENSE)
+[![Maven Central](https://img.shields.io/badge/maven--central-1.0.1-blue)](https://mvnrepository.com/artifact/io.github.avidbyte/netty-websocket-boot-starter/1.0.1)
+[![Maven Central](https://img.shields.io/badge/PRs--welcome-red)](https://github.com/avidbyte/netty-websocket-boot-starter/pulls)
 
-README: [简体中文](https://github.com/avidbyte/netty-websocket-boot-starter/blob/main/README.md) ｜ [English](https://github.com/avidbyte/netty-websocket-boot-starter/blob/main/README_en.md) 
+[简体中文](https://github.com/avidbyte/netty-websocket-boot-starter/blob/main/README.md) ｜ [English](https://github.com/avidbyte/netty-websocket-boot-starter/blob/main/README_en.md) 
 
 
 ### 概述
