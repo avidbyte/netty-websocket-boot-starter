@@ -18,7 +18,7 @@ netty-websocket-boot-starter
 - 简化实时应用程序开发
 - 基于强大的Netty框架构建
 
-如果您觉得这个项目不错，请点一个Star吧
+开源之路不易，如果你觉得本项目对你有所帮助，请慷慨地点一个 Star，你的支持将是我持续前进的动力！
 ### 要求
 - jdk version 1.8 or 1.8+
 
