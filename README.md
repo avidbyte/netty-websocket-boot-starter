@@ -38,6 +38,18 @@ netty-websocket-boot-starter
 - 在端点类上注释`@ServerEndpoint`，并在方法上注释`@BeforeHandshake`,`@OnOpen`,`@OnClose`,`@OnError`,`@OnMessage`,`@OnBinary`,`@OnEvent`。
 
 ```java
+import io.github.avidbyte.annotation.*;
+import io.github.avidbyte.standard.Session;
+import io.netty.handler.codec.http.HttpHeaders;
+import io.netty.handler.timeout.IdleStateEvent;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
+
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+
+
 @Slf4j
 @Service
 @ServerEndpoint("/chat/text")

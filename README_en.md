@@ -38,6 +38,18 @@ If you think this project is good, please click a Star
 - annotate `@ServerEndpoint` on endpoint class，and annotate `@BeforeHandshake`,`@OnOpen`,`@OnClose`,`@OnError`,`@OnMessage`,`@OnBinary`,`@OnEvent` on the method.
 
 ```java
+import io.github.avidbyte.annotation.*;
+import io.github.avidbyte.standard.Session;
+import io.netty.handler.codec.http.HttpHeaders;
+import io.netty.handler.timeout.IdleStateEvent;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
+
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+
+
 @Slf4j
 @Service
 @ServerEndpoint("/chat/text")
